@@ -10,16 +10,16 @@ public class CardBuilder {
   String superclass;
   String subclass;
   Type type;
-  List<String> responsabilities;
-  List<String> collaborators;
+  List<String> responsabilitiesList;
+  List<String> collaboratorsList;
 
   public CardBuilder() {
     name = "";
     superclass = "";
     subclass = "";
     type = Type.NORMAL;
-    responsabilities = new ArrayList<>();
-    collaborators = new ArrayList<>();
+    responsabilitiesList = new ArrayList<>();
+    collaboratorsList = new ArrayList<>();
   }
 
   public CardBuilder withNumber(int number) {
@@ -47,13 +47,17 @@ public class CardBuilder {
     return this;
   }
 
-  public CardBuilder withResponsability(String responsability) {
-    responsabilities.add(responsability);
+  public CardBuilder withResponsabilities(String responsabilities) {
+    for(String responsibility : responsabilities.trim().split("[\n]")) {
+      responsabilitiesList.add(responsibility);
+    }
     return this;
   }
 
-  public CardBuilder withCollaborator(String collaborator) {
-    collaborators.add(collaborator);
+  public CardBuilder withCollaborators(String collaborators) {
+    for(String colaborator : collaborators.trim().split("[\n]")) {
+      collaboratorsList.add(colaborator);
+    }
     return this;
   }
 

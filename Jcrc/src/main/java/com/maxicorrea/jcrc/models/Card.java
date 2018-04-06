@@ -20,8 +20,8 @@ public class Card  {
     this.superclass = builder.superclass;
     this.subclass = builder.subclass;
     this.type = builder.type;
-    this.responsabilities = builder.responsabilities;
-    this.collaborators = builder.collaborators;
+    this.responsabilities = builder.responsabilitiesList;
+    this.collaborators = builder.collaboratorsList;
   }
 
   void copyDataOf(Card other) {
