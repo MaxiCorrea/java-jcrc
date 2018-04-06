@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Card  {
+public class Card {
 
   private int number;
   private String name;
@@ -15,16 +15,22 @@ public class Card  {
   private List<String> collaborators;
 
   Card(CardBuilder builder) {
-    this.number = builder.number;
-    this.name = builder.name;
-    this.superclass = builder.superclass;
-    this.subclass = builder.subclass;
-    this.type = builder.type;
-    this.responsabilities = builder.responsabilitiesList;
-    this.collaborators = builder.collaboratorsList;
+    this(builder.number, builder.name, builder.subclass, builder.subclass, builder.type,
+        builder.responsabilitiesList, builder.collaboratorsList);
   }
 
-  void copyDataOf(Card other) {
+  Card(int number, String name, String superclass, String subclass, Type type,
+      List<String> responsabilities, List<String> collaborators) {
+    this.number = number;
+    this.name = name;
+    this.superclass = superclass;
+    this.subclass = subclass;
+    this.type = type;
+    this.responsabilities = responsabilities;
+    this.collaborators = collaborators;
+  }
+
+  public void copyDataOf(Card other) {
     this.name = other.getName();
     this.superclass = other.getSuperclass();
     this.subclass = other.getSubclass();
@@ -69,7 +75,13 @@ public class Card  {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
+    result = prime * result + ((collaborators == null) ? 0 : collaborators.hashCode());
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
     result = prime * result + number;
+    result = prime * result + ((responsabilities == null) ? 0 : responsabilities.hashCode());
+    result = prime * result + ((subclass == null) ? 0 : subclass.hashCode());
+    result = prime * result + ((superclass == null) ? 0 : superclass.hashCode());
+    result = prime * result + ((type == null) ? 0 : type.hashCode());
     return result;
   }
 
@@ -82,7 +94,34 @@ public class Card  {
     if (getClass() != obj.getClass())
       return false;
     Card other = (Card) obj;
-    return number == other.number;
+    if (collaborators == null) {
+      if (other.collaborators != null)
+        return false;
+    } else if (!collaborators.equals(other.collaborators))
+      return false;
+    if (name == null) {
+      if (other.name != null)
+        return false;
+    } else if (!name.equals(other.name))
+      return false;
+    if (number != other.number)
+      return false;
+    if (responsabilities == null) {
+      if (other.responsabilities != null)
+        return false;
+    } else if (!responsabilities.equals(other.responsabilities))
+      return false;
+    if (subclass == null) {
+      if (other.subclass != null)
+        return false;
+    } else if (!subclass.equals(other.subclass))
+      return false;
+    if (superclass == null) {
+      if (other.superclass != null)
+        return false;
+    } else if (!superclass.equals(other.superclass))
+      return false;
+    return type == other.type;
   }
 
 }
