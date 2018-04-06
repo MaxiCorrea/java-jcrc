@@ -42,10 +42,12 @@ public class JCrc {
   }
 
   public void editCard(Card card) {
-    int index = cards.indexOf(card);
-    if (index != -1) {
-      cards.get(index).copyDataOf(card);
-      notifyObservers();
+    for(Card each : cards) {
+      if(each.getNumber() == card.getNumber()) {
+        each.copyDataOf(card);
+        notifyObservers();
+        return;
+      }
     }
   }
 
