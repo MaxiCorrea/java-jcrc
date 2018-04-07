@@ -46,8 +46,11 @@ public class CardTest {
     assertTrue(card.equals(card));
     Card another = new CardBuilder().build();
     assertFalse(card.equals(another));
-    Card expected =new CardBuilder().withCollaborators("").withName(ANY_NAME).build();
-    assertEquals(expected , card);
+    Card unexpected =new CardBuilder().withNumber(2).withName(ANY_NAME).build();
+    assertNotEquals(unexpected , card);
+    Card copy = new CardBuilder().build();
+    copy.copyDataOf(card);
+    assertEquals(card , card);
   }
  
 }

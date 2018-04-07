@@ -60,7 +60,7 @@ public class JCrc {
 
   public void moveDownCard(Card card) {
     int index = cards.indexOf(card);
-    if (index > 0 && index < cards.size() - 1) {
+    if (index >= 0 && index < cards.size() - 1) {
       swapObjects(index, index + 1);
       swapNumbers(index, index + 1);
       notifyObservers();
@@ -69,7 +69,7 @@ public class JCrc {
 
   public void moveUpCard(Card card) {
     int index = cards.indexOf(card);
-    if (index > 0 && index < cards.size() - 1) {
+    if (index > 0 && index <= cards.size() - 1) {
       swapObjects(index, index - 1);
       swapNumbers(index, index - 1);
       notifyObservers();
