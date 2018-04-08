@@ -15,7 +15,7 @@ public class Card {
   private List<String> collaborators;
 
   Card(CardBuilder builder) {
-    this(builder.number, builder.name, builder.subclass, builder.subclass, builder.type,
+    this(builder.number, builder.name, builder.superclass, builder.subclass, builder.type,
         builder.responsabilitiesList, builder.collaboratorsList);
   }
 
