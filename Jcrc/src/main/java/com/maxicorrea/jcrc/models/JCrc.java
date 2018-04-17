@@ -42,8 +42,8 @@ public class JCrc {
   }
 
   public void editCard(Card card) {
-    for(Card each : cards) {
-      if(each.getNumber() == card.getNumber()) {
+    for (Card each : cards) {
+      if (each.getNumber() == card.getNumber()) {
         each.copyDataOf(card);
         notifyObservers();
         return;
@@ -94,6 +94,10 @@ public class JCrc {
     return Collections.unmodifiableList(cards);
   }
 
+  public boolean containCards() {
+    return cards.size() > 0;
+  }
+  
   public int getNumberOfCards() {
     return cards.size();
   }
