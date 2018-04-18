@@ -1,6 +1,6 @@
 #!/bin/bash
 
-workspace="/home/max/git/Jbmp/Jbmp/"
+workspace="/home/max/git/Jcrc/Jcrc/"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export M2_HOME="/opt/apache-maven-3.5.2"
 export PATH="$PATH:${JAVA_HOME}${M2_HOME}"
