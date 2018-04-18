@@ -94,31 +94,26 @@ public class Card {
     if (getClass() != obj.getClass())
       return false;
     Card other = (Card) obj;
-    if (collaborators == null) {
-      if (other.collaborators != null)
-        return false;
+    if (collaborators == null && other.collaborators != null) {
+      return false;
     } else if (!collaborators.equals(other.collaborators))
       return false;
-    if (name == null) {
-      if (other.name != null)
-        return false;
+    if (name == null && other.name != null) {
+      return false;
     } else if (!name.equals(other.name))
       return false;
     if (number != other.number)
       return false;
-    if (responsabilities == null) {
-      if (other.responsabilities != null)
-        return false;
+    if (responsabilities == null && other.responsabilities != null) {
+      return false;
     } else if (!responsabilities.equals(other.responsabilities))
       return false;
-    if (subclass == null) {
-      if (other.subclass != null)
-        return false;
+    if (subclass == null && other.subclass != null) {
+      return false;
     } else if (!subclass.equals(other.subclass))
       return false;
-    if (superclass == null) {
-      if (other.superclass != null)
-        return false;
+    if (superclass == null && other.superclass != null) {
+      return false;
     } else if (!superclass.equals(other.superclass))
       return false;
     return type == other.type;
