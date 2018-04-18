@@ -72,7 +72,7 @@
 			<artifactId>mockito</artifactId>
 			<version>1.0.3</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.1.0</version>
@@ -124,14 +124,12 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>	
+			</plugin>
 		</plugins>
 	</build>
-
 	<developers>
 		<developer>
 			<name>Maximiliano Correa</name>
-			<id>Id</id>
 			<email>jmaxicorrea@gmail.com</email>
 			<organization>maxicorrea-github</organization>
 			<roles>
