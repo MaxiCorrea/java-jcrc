@@ -17,7 +17,7 @@ class ListCardsPanel extends JPanel implements Observer {
   private Button export;
   private Button print;
   private JPanel contentPane;
-  private JCrcView mainView;
+  private transient JCrcView mainView;
 
   ListCardsPanel(JCrcView mainView) {
     super(new BorderLayout());
