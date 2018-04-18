@@ -4,6 +4,6 @@ import com.maxicorrea.jcrc.models.JCrc;
 
 public interface Format {
 
-  void print(JCrc model , String location) throws Exception;
+  void print(JCrc model , String location) throws PrintException;
   
 }

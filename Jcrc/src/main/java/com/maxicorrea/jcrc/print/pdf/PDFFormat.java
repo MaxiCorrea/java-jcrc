@@ -4,6 +4,7 @@ import java.util.HashMap;
 import com.maxicorrea.jcrc.application.AppConfig;
 import com.maxicorrea.jcrc.models.JCrc;
 import com.maxicorrea.jcrc.print.Format;
+import com.maxicorrea.jcrc.print.PrintException;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -11,10 +12,14 @@ import net.sf.jasperreports.engine.JasperFillManager;
 public class PDFFormat implements Format {
 
   @Override
-  public void print(JCrc model, String location) throws JRException {
-    JasperFillManager.fillReportToFile(AppConfig.url("cardjasper"), new HashMap<>(),
-        new CardBeanDataSource(model).createReportDataSource());
-    JasperExportManager.exportReportToPdfFile(AppConfig.url("cardjrprint"), addExtension(location));
+  public void print(JCrc model, String location) throws PrintException{
+    try {
+      JasperFillManager.fillReportToFile(AppConfig.url("cardjasper"), new HashMap<>(),
+          new CardBeanDataSource(model).createReportDataSource());
+      JasperExportManager.exportReportToPdfFile(AppConfig.url("cardjrprint"), addExtension(location));
+    } catch(JRException jrex) {
+      throw new PrintException();
+    }
   }
 
   String addExtension(String location) {

@@ -15,6 +15,7 @@ import com.maxicorrea.jcrc.export.ExportType;
 import com.maxicorrea.jcrc.export.Exporter;
 import com.maxicorrea.jcrc.models.Card;
 import com.maxicorrea.jcrc.models.JCrc;
+import com.maxicorrea.jcrc.print.PrintException;
 import com.maxicorrea.jcrc.print.PrintType;
 import com.maxicorrea.jcrc.print.Printer;
 import com.maxicorrea.jcrc.views.utils.MotionFrame;
@@ -149,7 +150,7 @@ public class JCrcView {
         try {
           print.print(getModel(), path);
           JOptionPane.showMessageDialog(frame, PDF_READY_MESSAGE);
-        } catch (Exception e) {
+        } catch (PrintException e) {
           JOptionPane.showMessageDialog(frame, e.getMessage());
         }
       }).start();

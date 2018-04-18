@@ -14,7 +14,7 @@ public class Printer {
     this.format = format;
   }
 
-  public void print(JCrc model, String location) throws Exception {
+  public void print(JCrc model, String location) throws PrintException {
     format.print(model, location);
   }
 
