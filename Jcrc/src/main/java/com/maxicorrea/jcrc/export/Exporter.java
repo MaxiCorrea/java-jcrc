@@ -2,16 +2,16 @@ package com.maxicorrea.jcrc.export;
 
 import com.maxicorrea.jcrc.models.JCrc;
 
-public class Export {
+public class Exporter {
 
-  public static Export create(ExportType type) {
-    return new Export(type);
+  public static Exporter create(ExportType type) {
+    return new Exporter(type.getFormat());
   }
 
   private Format format;
 
-  private Export(ExportType type) {
-    this.format = type.getFormat();
+  Exporter(Format format) {
+    this.format = format;
   }
 
   public String exportToString(JCrc model) {

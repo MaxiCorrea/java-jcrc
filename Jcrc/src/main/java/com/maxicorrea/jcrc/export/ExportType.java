@@ -1,5 +1,7 @@
 package com.maxicorrea.jcrc.export;
 
+import com.maxicorrea.jcrc.export.json.JSONFormat;
+
 public enum ExportType {
 
   JSON {

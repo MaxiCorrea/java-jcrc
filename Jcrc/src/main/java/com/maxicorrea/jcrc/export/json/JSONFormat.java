@@ -1,12 +1,13 @@
-package com.maxicorrea.jcrc.export;
+package com.maxicorrea.jcrc.export.json;
 
 import org.json.simple.JSONObject;
+import com.maxicorrea.jcrc.export.Format;
 import com.maxicorrea.jcrc.models.Card;
 import com.maxicorrea.jcrc.models.JCrc;
 
-class JSONFormat implements Format {
+public class JSONFormat implements Format {
 
-  private static final String NAME_FORMAT = "JSON Format";
+  static final String NAME_FORMAT = "JSON Format";
 
   @Override
   public String getName() {
@@ -18,7 +19,7 @@ class JSONFormat implements Format {
   public String exportToString(JCrc model) {
     JSONObject jsonObject = new JSONObject();
     StringBuilder out = new StringBuilder("[ \n");
-    for( int index = 0 ; index < model.getAllCards().size() ; ++index) {
+    for (int index = 0; index < model.getAllCards().size(); ++index) {
       Card card = model.getAllCards().get(index);
       jsonObject.put("responsibilities", card.getResponsabilities());
       jsonObject.put("collaborators", card.getCollaborators());
@@ -27,13 +28,13 @@ class JSONFormat implements Format {
       jsonObject.put("subclass", card.getSubclass());
       jsonObject.put("type", card.getType().toString());
       out.append(jsonObject.toJSONString()).append("\n");
-      if(index + 1 < model.getAllCards().size()) {
+      if (index + 1 < model.getAllCards().size()) {
         out.append(",\n");
       }
     }
     StringBuilder b = new StringBuilder();
-    for(char x : out.toString().toCharArray()) {
-      if(x == ',') {
+    for (char x : out.toString().toCharArray()) {
+      if (x == ',') {
         b.append("\n");
       }
       b.append(x);

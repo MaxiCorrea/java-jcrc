@@ -2,7 +2,7 @@ package com.maxicorrea.jcrc.export;
 
 import com.maxicorrea.jcrc.models.JCrc;
 
- interface Format {
+public interface Format {
 
   String getName();
   
