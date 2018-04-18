@@ -95,7 +95,7 @@ public class JCrc {
   }
 
   public boolean containCards() {
-    return cards.size() > 0;
+    return !cards.isEmpty();
   }
   
   public int getNumberOfCards() {
