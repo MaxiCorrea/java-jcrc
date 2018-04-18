@@ -43,7 +43,7 @@ public class JCrcView {
     UIManager.put("ScrollBar.thumbShadow", Color.WHITE);
     UIManager.put("ScrollBar.background", Color.WHITE);
     UIManager.put("ScrollBar.foreground", Color.WHITE);
-    UIManager.put("ScrollBar.width", new Integer(15));
+    UIManager.put("ScrollBar.width", Integer.valueOf(15));
     frame = new JFrame();
     frame.setIconImage(
         Toolkit.getDefaultToolkit().getImage(getClass().getResource(AppConfig.url("app_icon"))));
