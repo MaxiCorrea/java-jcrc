@@ -98,9 +98,9 @@ class CardDialogPanel extends JPanel {
     });
     leftPanel.add(aceptButton);
     cancelButton = new Button("Cancel");
-    cancelButton.addActionListener((ActionEvent e) -> {
-      mainView.cancelEditOrNewCard();
-    });
+    cancelButton.addActionListener((ActionEvent e) -> 
+      mainView.cancelEditOrNewCard()
+    );
     rightPanel.add(cancelButton);
     dataPanel.add(buttonsPane);
     add(dataPanel);

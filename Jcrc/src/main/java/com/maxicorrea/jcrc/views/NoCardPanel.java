@@ -12,7 +12,7 @@ import com.maxicorrea.jcrc.views.utils.ShadowBorder;
 
 public class NoCardPanel extends JPanel {
   private static final long serialVersionUID = 1L;
-  
+
   private JLabel messageLabel;
   private Button newCardButton;
 
@@ -23,13 +23,11 @@ public class NoCardPanel extends JPanel {
     dataPanel.setPreferredSize(new Dimension(650, 200));
     messageLabel = new JLabel("You don't have any cards yet.", JLabel.CENTER);
     messageLabel.setFont(new Font(Font.DIALOG, Font.ITALIC, 35));
-    dataPanel.add(messageLabel, BorderLayout.CENTER); 
-    dataPanel.setBorder( new ShadowBorder().getBorder());
+    dataPanel.add(messageLabel, BorderLayout.CENTER);
+    dataPanel.setBorder(new ShadowBorder().getBorder());
     JPanel extra = new JPanel();
     newCardButton = new Button("New card");
-    newCardButton.addActionListener((ActionEvent e) -> {
-      mainView.showNewCardView();
-    });
+    newCardButton.addActionListener((ActionEvent e) -> mainView.showNewCardView());
     extra.add(newCardButton);
     dataPanel.add(extra, BorderLayout.SOUTH);
     add(dataPanel, BorderLayout.CENTER);
@@ -42,5 +40,5 @@ public class NoCardPanel extends JPanel {
   String getNewCardButtonText() {
     return newCardButton.getText();
   }
-  
+
 }

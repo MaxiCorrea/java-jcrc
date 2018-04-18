@@ -26,21 +26,13 @@ class ListCardsPanel extends JPanel implements Observer {
     mainView.getModel().addObserver(this);
     JPanel panelNorth = new JPanel();
     newCard = new Button("New Card");
-    newCard.addActionListener((ActionEvent e) -> {
-      mainView.showNewCardView();
-    });
+    newCard.addActionListener((ActionEvent e) -> mainView.showNewCardView());
     removeAll = new Button("Remove All");
-    removeAll.addActionListener((ActionEvent e) -> {
-      mainView.removeAllWithDialog();
-    });
+    removeAll.addActionListener((ActionEvent e) -> mainView.removeAllWithDialog());
     export = new Button("Export");
-    export.addActionListener((ActionEvent e) ->{
-      mainView.showExportView();
-    });
+    export.addActionListener((ActionEvent e) -> mainView.showExportView());
     print = new Button("Print");
-    print.addActionListener((ActionEvent e)->{
-      mainView.printCards();
-    });
+    print.addActionListener((ActionEvent e) -> mainView.printCards());
     panelNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
     panelNorth.add(newCard);
     panelNorth.add(removeAll);

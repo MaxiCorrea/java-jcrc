@@ -12,7 +12,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import com.maxicorrea.jcrc.models.Card;
 import com.maxicorrea.jcrc.views.utils.Button;
 import com.maxicorrea.jcrc.views.utils.ShadowBorder;
@@ -20,7 +19,6 @@ import com.maxicorrea.jcrc.views.utils.ShadowBorder;
 class CardPanel extends JPanel {
 
   private static final long serialVersionUID = 1L;
-  private final Border BORDER = BorderFactory.createLineBorder(Color.PINK);
 
   private Button edit;
   private Button remove;
@@ -36,7 +34,7 @@ class CardPanel extends JPanel {
     setBorder(new ShadowBorder().getBorder());
     JPanel northPane = new JPanel(new GridLayout(3, 1));
     northPane.setPreferredSize(new Dimension(700, 100));
-    northPane.setBorder(BORDER);
+    northPane.setBorder(BorderFactory.createLineBorder(Color.PINK));
     type = new JLabel(" " + card.getType(), JLabel.LEFT);
     superClass = new JLabel(card.getSuperclass() + " ", JLabel.RIGHT);
     JPanel panel = new JPanel(new BorderLayout());
@@ -50,27 +48,23 @@ class CardPanel extends JPanel {
     northPane.add(subClass);
     add(northPane, BorderLayout.NORTH);
     JPanel centerPane = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    centerPane.setBorder(BORDER);
+    centerPane.setBorder(BorderFactory.createLineBorder(Color.PINK));
     JPanel extra1 = new JPanel(new GridLayout(card.getResponsabilities().size(), 1));
     loadResponsabilities(card, extra1);
     centerPane.add(extra1);
     add(centerPane, BorderLayout.CENTER);
     JPanel eastPane = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    eastPane.setBorder(BORDER);
+    eastPane.setBorder(BorderFactory.createLineBorder(Color.PINK));
     JPanel extra2 = new JPanel(new GridLayout(card.getCollaborators().size(), 1));
     loadCollaborators(card, extra2);
     eastPane.add(extra2);
     add(eastPane, BorderLayout.EAST);
     JPanel southPane = new JPanel(new FlowLayout(FlowLayout.LEFT));
     edit = new Button("Edit card #" + card.getNumber());
-    edit.addActionListener((ActionEvent e) -> {
-      mainView.showEditCardView(card);
-    });
+    edit.addActionListener((ActionEvent e) -> mainView.showEditCardView(card));
     southPane.add(edit);
     remove = new Button("Delete");
-    remove.addActionListener((ActionEvent e) -> {
-      mainView.removeCard(card);
-    });
+    remove.addActionListener((ActionEvent e) -> mainView.removeCard(card));
     southPane.add(remove);
     add(southPane, BorderLayout.SOUTH);
   }
@@ -83,7 +77,7 @@ class CardPanel extends JPanel {
       extra1.add(label);
     }
   }
-  
+
   private void loadCollaborators(Card card, JPanel extra2) {
     collaborators = new ArrayList<>();
     for (String collaborator : card.getCollaborators()) {

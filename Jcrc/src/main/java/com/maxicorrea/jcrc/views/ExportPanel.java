@@ -15,7 +15,7 @@ class ExportPanel extends JPanel {
   private JLabel titleLabel;
   private JTextArea areaText;
   private Button close;
- 
+
   ExportPanel(JCrcView mainView) {
     super(new BorderLayout());
     setName("export-view");
@@ -28,9 +28,7 @@ class ExportPanel extends JPanel {
     add(areaText, BorderLayout.CENTER);
     JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     close = new Button("Close");
-    close.addActionListener((ActionEvent e) -> {
-      mainView.closeExport();
-    });
+    close.addActionListener((ActionEvent e) -> mainView.closeExport());
     panel.add(close);
     add(panel, BorderLayout.SOUTH);
   }
@@ -38,7 +36,7 @@ class ExportPanel extends JPanel {
   String getText() {
     return areaText.getText();
   }
-  
+
   void setText(String text) {
     areaText.setText(text);
   }
