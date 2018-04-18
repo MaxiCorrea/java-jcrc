@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CardReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5acd71a3-34c8-4393-8d3c-3e1f95ff60b1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="superclass" class="java.lang.String"/>
+	<field name="subclass" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="responsibilities" class="java.lang.String"/>
+	<field name="collaborators" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<frame>
+				<reportElement x="-11" y="0" width="571" height="88" uuid="c9fc03fb-cc9e-4d14-9030-4c29a9148f84"/>
+				<staticText>
+					<reportElement x="170" y="9" width="230" height="70" uuid="1b6d6fad-730e-4e05-80d4-271d0d332fd6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="30"/>
+					</textElement>
+					<text><![CDATA[Cards]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="11" width="100" height="19" uuid="98d1b9ab-2339-4d32-9bd1-da826e4dc9a3"/>
+					<text><![CDATA[JCRC Card Maker]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="426" y="9" width="145" height="21" uuid="1b95801f-59ff-4a81-b782-21d46b9f2c60"/>
+					<textElement textAlignment="Center">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[https://github.com/MaxiCorrea]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<frame>
+				<reportElement x="-11" y="1" width="571" height="140" uuid="e04ac4f5-5fdd-4eb2-888d-13aea5d9e7cc"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="170" y="31" width="230" height="49" uuid="1869197d-258c-4fe2-9dcc-c61c83105193"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="425" y="32" width="131" height="19" uuid="69f5e4dc-eba4-4596-b046-4d41e14f5819"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{superclass}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="426" y="61" width="131" height="20" uuid="399b2dd8-cd7e-48db-91cb-6cbc9985309b"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{subclass}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="11" y="32" width="120" height="15" uuid="25376df5-04a3-41f1-94a0-36985457cb53"/>
+					<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="12" y="90" width="348" height="45" uuid="7fd2931b-51f7-4cc7-9094-7c48fa450cb0"/>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{responsibilities}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="360" y="90" width="196" height="45" uuid="b6146420-d85b-4dcf-9b0d-1c2747cc21f1"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{collaborators}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<frame>
+				<reportElement x="-10" y="0" width="570" height="40" uuid="9b0a9748-8c74-4152-82ba-01ab3317dd10"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="10" y="10" width="100" height="20" uuid="fa50c809-fe4e-414e-9041-96cf73340f19"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="406" y="10" width="80" height="20" uuid="5aa3c8ee-b4b1-4e59-8a5c-1e8c9573e5b2"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="486" y="10" width="84" height="20" uuid="6c04e56a-1c39-42aa-90fa-f487eb501752"/>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
