@@ -2,20 +2,23 @@ package com.maxicorrea.jcrc.models;
 
 public enum Type {
 
-  NORMAL, ABSTRACT, INTERFACE;
-
-  @Override
-  public String toString() {
-    if (this == NORMAL) {
+  NORMAL {
+    @Override
+    public String toString() {
       return "Normal";
     }
-    if (this == ABSTRACT) {
+  },
+  ABSTRACT {
+    @Override
+    public String toString() {
       return "Abstract";
     }
-    if (this == INTERFACE) {
+  },
+  INTERFACE {
+    @Override
+    public String toString() {
       return "Interface";
     }
-    return "";
-  }
+  };
 
 }
