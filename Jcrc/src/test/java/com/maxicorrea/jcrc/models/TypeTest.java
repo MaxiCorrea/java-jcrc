@@ -7,9 +7,9 @@ public class TypeTest {
 
   @Test
   public void shouldReturnHisNameWithTheFirstLetterInCapitalLettersAndTheRestInMinuscule() {
-    assertEquals("Abstract" , Type.ABSTRACT.toString());
-    assertEquals("Interface" , Type.INTERFACE.toString());
-    assertEquals("Normal" , Type.NORMAL.toString());
+    assertEquals("Abstract", Type.ABSTRACT.toString());
+    assertEquals("Interface", Type.INTERFACE.toString());
+    assertEquals("Normal", Type.NORMAL.toString());
   }
 
 }
