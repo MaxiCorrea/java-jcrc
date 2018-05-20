@@ -6,7 +6,7 @@ Este proyecto pretende ser una utilidad para la construcción y organización de
 ### Caracteristicas
 1 - Crear/Modificar/Eliminar tarjetas CRC de forma interactiva.
 
-2 - Importar en formato JSON y PDF.
+2 - Exportar en formato JSON y PDF.
 
 ### Tecnologías
 * JavaSE 8
