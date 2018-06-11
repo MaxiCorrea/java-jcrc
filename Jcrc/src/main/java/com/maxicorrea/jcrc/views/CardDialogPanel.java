@@ -12,7 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import org.jdesktop.swingx.JXRadioGroup;
 import com.maxicorrea.jcrc.models.Card;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.Type;
 import com.maxicorrea.jcrc.views.utils.Button;
 import com.maxicorrea.jcrc.views.utils.ShadowBorder;
@@ -134,8 +134,8 @@ class CardDialogPanel extends JPanel {
   }
 
   Card getCard() {
-    return new CardBuilder().withName(fieldClassName.getText())
-        .withSuperclass(fieldSuperclass.getText()).withSubclass(fieldSubclass.getText())
+    return new Builder().withName(fieldClassName.getText())
+        .withSuperClass(fieldSuperclass.getText()).withSubClass(fieldSubclass.getText())
         .withType(typeClass.getSelectedValue()).withResponsabilities(areaResponsabilities.getText())
         .withCollaborators(areaCollaborators.getText()).withNumber(number).build();
   }

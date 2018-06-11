@@ -4,12 +4,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import org.junit.Test;
 import com.maxicorrea.jcrc.models.Card;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.JCrc;
 
 public class JCrcViewTest {
 
-  private Card card = new CardBuilder().build();
+  private Card card = new Builder().build();
 
   @Test
   public void shouldInvokeTheModelToAddAnewCard() {

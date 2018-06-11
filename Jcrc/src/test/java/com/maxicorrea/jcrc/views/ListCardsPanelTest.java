@@ -7,13 +7,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.Test;
 import com.maxicorrea.jcrc.models.Card;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.JCrc;
 import com.maxicorrea.jcrc.models.Observer;
 
 public class ListCardsPanelTest {
 
-  private Card card = new CardBuilder().build();
+  private Card card = new Builder().build();
 
   @Test
   public void shouldBeAnObserverOfTheModel() {

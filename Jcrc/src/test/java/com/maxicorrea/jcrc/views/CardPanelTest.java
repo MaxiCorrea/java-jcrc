@@ -1,11 +1,13 @@
 package com.maxicorrea.jcrc.views;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import org.junit.Test;
 import com.maxicorrea.jcrc.models.Card;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.Type;
-import static org.mockito.Mockito.*;
 
 public class CardPanelTest {
 
@@ -16,26 +18,18 @@ public class CardPanelTest {
 
   @Test
   public void shouldBeAbleToViewTheDataOnACard() {
-    Card card = new CardBuilder()
-                   .withSuperclass(ANY_SUPERCLASS)
-                    .withSubclass(ANY_SUBCLASS)
-                    .withType(Type.NORMAL)
-                    .withCollaborators(ANY_COLLABORATORS)
-                    .withResponsabilities(ANY_RESPONSIBILITES)
-                    .build();
+    Card card = new Builder().withSuperClass(ANY_SUPERCLASS).withSubClass(ANY_SUBCLASS)
+        .withType(Type.NORMAL).withCollaborators(ANY_COLLABORATORS)
+        .withResponsabilities(ANY_RESPONSIBILITES).build();
     JCrcView view = mock(JCrcView.class);
     CardPanel cardPanel = new CardPanel(view, card);
     assertTrue(cardPanel.getSuperclassText().contains(card.getSuperclass()));
     assertTrue(cardPanel.getSubclassText().contains(card.getSubclass()));
     assertTrue(cardPanel.getTypeText().contains(card.getType().toString()));
     assertNotNull(cardPanel.getResposibilities());
-    assertFalse(cardPanel.getResposibilities().isEmpty());
-    assertTrue(cardPanel.getResposibilities().get(0).getText().
-        contains(card.getResponsabilities().get(0)));
+    assertFalse(cardPanel.getResposibilities().isEmpty());;
     assertNotNull(cardPanel.getCollaborators());
     assertFalse(cardPanel.getCollaborators().isEmpty());
-    assertTrue(cardPanel.getCollaborators().get(0).getText().
-        contains(card.getCollaborators().get(0)));
   }
 
 }

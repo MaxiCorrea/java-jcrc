@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import org.junit.Test;
 import com.maxicorrea.jcrc.models.Card;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.Type;
 
 public class CardDialogPanelTest {
@@ -14,9 +14,9 @@ public class CardDialogPanelTest {
   private static final String ANY_COLLABORATORS = "collaborators";
   private static final String ANY_RESPONSIBILITES = "responsibilities";
 
-  private Card card = new CardBuilder()
-      .withSuperclass(ANY_SUPERCLASS)
-       .withSubclass(ANY_SUBCLASS)
+  private Card card = new Builder()
+      .withSuperClass(ANY_SUPERCLASS)
+       .withSubClass(ANY_SUBCLASS)
        .withType(Type.NORMAL)
        .withCollaborators(ANY_COLLABORATORS)
        .withResponsabilities(ANY_RESPONSIBILITES)

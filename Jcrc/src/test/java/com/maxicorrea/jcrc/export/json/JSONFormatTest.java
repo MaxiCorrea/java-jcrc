@@ -1,8 +1,10 @@
 package com.maxicorrea.jcrc.export.json;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
-import com.maxicorrea.jcrc.models.CardBuilder;
+import com.maxicorrea.jcrc.models.Card.Builder;
 import com.maxicorrea.jcrc.models.JCrc;
 
 public class JSONFormatTest {
@@ -10,7 +12,7 @@ public class JSONFormatTest {
   @Test
   public void shouldReturnTheNameOfTheFormat() {
     JSONFormat format = new JSONFormat();
-    assertEquals(JSONFormat.NAME_FORMAT , format.getName());
+    assertEquals(JSONFormat.NAME_FORMAT, format.getName());
   }
 
   @Test
@@ -20,10 +22,10 @@ public class JSONFormatTest {
     String output = format.exportToString(crc);
     assertNotNull(output);
     assertFalse(output.isEmpty());
-    crc.addNewCard( new CardBuilder().build());
+    crc.addNewCard(new Builder().build());
     output = format.exportToString(crc);
     assertNotNull(output);
     assertFalse(output.isEmpty());
   }
-  
+
 }
