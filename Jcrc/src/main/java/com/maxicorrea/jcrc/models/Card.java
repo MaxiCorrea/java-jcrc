@@ -1,33 +1,83 @@
 package com.maxicorrea.jcrc.models;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
 public class Card {
 
-  private int number = 0;
-  private String name = "";
-  private String superclass= "";
-  private String subclass="";
-  private Type type = Type.NORMAL;
-  private List<String> responsabilities;
-  private List<String> collaborators;
+  private int number;
+  private String name;
+  private String superclass;
+  private String subclass;
+  private Type type;
+  private Set<String> responsabilities;
+  private Set<String> collaborators;
 
-  Card(CardBuilder builder) {
-    this(builder.number, builder.name, builder.superclass, builder.subclass, builder.type,
-        builder.responsabilitiesList, builder.collaboratorsList);
+  public static class Builder {
+
+    private int number = 0;
+    private String name = "";
+    private String superclass = "";
+    private String subclass = "";
+    private Type type = Type.NORMAL;
+    private Set<String> responsabilities = new HashSet<>();
+    private Set<String> collaborators = new HashSet<>();
+
+    public Builder withNumber(int number) {
+      this.number = number;
+      return this;
+    }
+
+    public Builder withName(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public Builder withSuperClass(String superclass) {
+      this.superclass = superclass;
+      return this;
+    }
+
+    public Builder withSubClass(String subclass) {
+      this.subclass = subclass;
+      return this;
+    }
+
+    public Builder withType(Type type) {
+      this.type = type;
+      return this;
+    }
+
+    public Builder withResponsabilities(String responsabilities) {
+      for (String responsibility : responsabilities.trim().split("[\n]")) {
+        this.responsabilities.add(responsibility);
+      }
+      return this;
+    }
+
+    public Builder withCollaborators(String collaborators) {
+      for (String colaborator : collaborators.trim().split("[\n]")) {
+        this.collaborators.add(colaborator);
+      }
+      return this;
+    }
+
+    public Card build() {
+      return new Card(this);
+    }
+
   }
 
-  Card(int number, String name, String superclass, String subclass, Type type,
-      List<String> responsabilities, List<String> collaborators) {
-    this.number = number;
-    this.name = name;
-    this.superclass = superclass;
-    this.subclass = subclass;
-    this.type = type;
-    this.responsabilities = responsabilities;
-    this.collaborators = collaborators;
+  private Card(Builder builder) {
+    this.number = builder.number;
+    this.name = builder.name;
+    this.type = builder.type;
+    this.superclass = builder.superclass;
+    this.subclass = builder.subclass;
+    this.collaborators = builder.collaborators;
+    this.responsabilities = builder.responsabilities;
   }
 
   public void copyDataOf(Card other) {
@@ -35,8 +85,8 @@ public class Card {
     this.superclass = other.getSuperclass();
     this.subclass = other.getSubclass();
     this.type = other.getType();
-    this.responsabilities = new ArrayList<>(other.getResponsabilities());
-    this.collaborators = new ArrayList<>(other.getCollaborators());
+    this.responsabilities = new HashSet<>(other.responsabilities);
+    this.collaborators = new HashSet<>(other.collaborators);
   }
 
   public int getNumber() {
@@ -63,12 +113,12 @@ public class Card {
     return type;
   }
 
-  public List<String> getResponsabilities() {
-    return Collections.unmodifiableList(responsabilities);
+  public Set<String> getResponsabilities() {
+    return Collections.unmodifiableSet(responsabilities);
   }
 
-  public List<String> getCollaborators() {
-    return Collections.unmodifiableList(collaborators);
+  public Set<String> getCollaborators() {
+    return Collections.unmodifiableSet(collaborators);
   }
 
   @Override
@@ -93,35 +143,12 @@ public class Card {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Card other = (Card) obj;
-    if (collaborators == null) {
-      if (other.collaborators != null)
-        return false;
-    } else if (!collaborators.equals(other.collaborators))
-      return false;
-    if (name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!name.equals(other.name))
-      return false;
-    if (number != other.number)
-      return false;
-    if (responsabilities == null) {
-      if (other.responsabilities != null)
-        return false;
-    } else if (!responsabilities.equals(other.responsabilities))
-      return false;
-    if (subclass == null) {
-      if (other.subclass != null)
-        return false;
-    } else if (!subclass.equals(other.subclass))
-      return false;
-    if (superclass == null) {
-      if (other.superclass != null)
-        return false;
-    } else if (!superclass.equals(other.superclass))
-      return false;
-    return type == other.type;
+    final Card other = (Card) obj;
+    return Integer.compare(number, other.number) == 0 && Objects.equals(name, other.name)
+        && Objects.equals(type, other.type) && Objects.equals(superclass, other.superclass)
+        && Objects.equals(subclass, other.subclass)
+        && Objects.equals(collaborators, other.collaborators)
+        && Objects.equals(responsabilities, other.responsabilities);
   }
 
 }
