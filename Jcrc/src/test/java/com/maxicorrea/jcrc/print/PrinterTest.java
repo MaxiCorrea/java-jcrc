@@ -1,10 +1,12 @@
 package com.maxicorrea.jcrc.print;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.junit.Test;
 import com.maxicorrea.jcrc.application.AppConfig;
 import com.maxicorrea.jcrc.models.JCrc;
-import static org.mockito.Mockito.*;
-import java.io.File;
 
 public class PrinterTest {
 
@@ -16,7 +18,7 @@ public class PrinterTest {
     Printer printer = new Printer(format);
     printer.print(model, location);
     verify(format).print(model, location);
-    new File(AppConfig.url("cardjrprint")).delete();
+    Files.delete(Paths.get(AppConfig.url("cardjrprint")));
   }
 
 }
