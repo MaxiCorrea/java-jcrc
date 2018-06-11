@@ -1,6 +1,6 @@
 package com.maxicorrea.jcrc.print.pdf;
 
-import java.util.List;
+import java.util.Set;
 import com.maxicorrea.jcrc.models.Card;
 
 public class CardBean {
@@ -25,7 +25,7 @@ public class CardBean {
     collaborators = parse(card.getCollaborators());
   }
 
-  private String parse(List<String> lines) {
+  private String parse(Set<String> lines) {
     StringBuilder builder = new StringBuilder();
     for (String line : lines) {
       builder.append(" * ").append(line).append("\n");
