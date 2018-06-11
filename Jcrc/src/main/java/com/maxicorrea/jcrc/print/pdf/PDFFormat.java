@@ -1,5 +1,6 @@
 package com.maxicorrea.jcrc.print.pdf;
 
+import java.io.File;
 import java.util.HashMap;
 import com.maxicorrea.jcrc.application.AppConfig;
 import com.maxicorrea.jcrc.models.JCrc;
@@ -16,6 +17,7 @@ public class PDFFormat implements Format {
       JasperFillManager.fillReportToFile(AppConfig.url("cardjasper"), new HashMap<>(),
           new CardBeanDataSource(model).createReportDataSource());
       JasperExportManager.exportReportToPdfFile(AppConfig.url("cardjrprint"), addExtension(location));
+      new File(AppConfig.url("cardjrprint")).delete();
     } catch(Exception jrex) {
       throw new PrintException();
     }
