@@ -5,80 +5,46 @@ import com.maxicorrea.jcrc.models.Card;
 
 public class CardBean {
 
-  private String name;
-  private String superclass;
-  private String subclass;
-  private String type;
-  private String responsibilities;
-  private String collaborators;
+  private static String getStringWithAsterisksPerLine(Set<String> lines) {
+    StringBuilder result = new StringBuilder();
+    for (String line : lines) {
+      result.append(" * ").append(line).append("\n");
+    }
+    return result.toString();
+  }
+
+  private Card card;
 
   public CardBean() {
     super();
   }
 
   public CardBean(Card card) {
-    name = card.getName();
-    superclass = card.getSuperclass();
-    subclass = card.getSubclass();
-    type = card.getType().toString();
-    responsibilities = parse(card.getResponsabilities());
-    collaborators = parse(card.getCollaborators());
-  }
-
-  private String parse(Set<String> lines) {
-    StringBuilder builder = new StringBuilder();
-    for (String line : lines) {
-      builder.append(" * ").append(line).append("\n");
-    }
-    return builder.toString();
+    this.card = card;
   }
 
   public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+    return card.getName();
   }
 
   public String getSuperclass() {
-    return superclass;
-  }
-
-  public void setSuperclass(String superclass) {
-    this.superclass = superclass;
+    return card.getSuperclass();
   }
 
   public String getSubclass() {
-    return subclass;
-  }
-
-  public void setSubclass(String subclass) {
-    this.subclass = subclass;
+    return card.getSubclass();
   }
 
   public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+    return String.valueOf(card.getType());
   }
 
   public String getResponsibilities() {
-    return responsibilities;
-  }
-
-  public void setResponsibilities(String responsibilities) {
-    this.responsibilities = responsibilities;
+    return getStringWithAsterisksPerLine(card.getResponsabilities());
   }
 
   public String getCollaborators() {
-    return collaborators;
-  }
-
-  public void setCollaborators(String collaborators) {
-    this.collaborators = collaborators;
+    return getStringWithAsterisksPerLine(card.getCollaborators());
   }
 
 }
