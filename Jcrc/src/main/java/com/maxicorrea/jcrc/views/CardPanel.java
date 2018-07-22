@@ -61,11 +61,11 @@ class CardPanel extends JPanel {
     add(eastPane, BorderLayout.EAST);
     JPanel southPane = new JPanel(new FlowLayout(FlowLayout.LEFT));
     edit = new Button("Edit card #" + card.getNumber());
-    edit.addActionListener((ActionEvent e) -> mainView.showEditCardView(card));
-    southPane.add(edit);
+    edit.getJButton().addActionListener((ActionEvent e) -> mainView.showEditCardView(card));
+    southPane.add(edit.getJButton());
     remove = new Button("Delete");
-    remove.addActionListener((ActionEvent e) -> mainView.removeCard(card));
-    southPane.add(remove);
+    remove.getJButton().addActionListener((ActionEvent e) -> mainView.removeCard(card));
+    southPane.add(remove.getJButton());
     add(southPane, BorderLayout.SOUTH);
   }
 

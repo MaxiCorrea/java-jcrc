@@ -89,19 +89,19 @@ class CardDialogPanel extends JPanel {
     buttonsPane.add(leftPanel, BorderLayout.WEST);
     buttonsPane.add(rightPanel, BorderLayout.EAST);
     aceptButton = new Button("Save Card");
-    aceptButton.addActionListener((ActionEvent e) -> {
+    aceptButton.getJButton().addActionListener((ActionEvent e) -> {
       if (editMode) {
         mainView.endEditCard(getCard());
       } else {
         mainView.addNewCard(getCard());
       }
     });
-    leftPanel.add(aceptButton);
+    leftPanel.add(aceptButton.getJButton());
     cancelButton = new Button("Cancel");
-    cancelButton.addActionListener((ActionEvent e) -> 
+    cancelButton.getJButton().addActionListener((ActionEvent e) -> 
       mainView.cancelEditOrNewCard()
     );
-    rightPanel.add(cancelButton);
+    rightPanel.add(cancelButton.getJButton());
     dataPanel.add(buttonsPane);
     add(dataPanel);
   }

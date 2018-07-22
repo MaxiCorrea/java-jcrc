@@ -28,8 +28,8 @@ class ExportPanel extends JPanel {
     add(areaText, BorderLayout.CENTER);
     JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     close = new Button("Close");
-    close.addActionListener((ActionEvent e) -> mainView.closeExport());
-    panel.add(close);
+    close.getJButton().addActionListener((ActionEvent e) -> mainView.closeExport());
+    panel.add(close.getJButton());
     add(panel, BorderLayout.SOUTH);
   }
 

@@ -10,9 +10,9 @@ public class ButtonTest {
   @Test
   public void shouldCreateAButtonWithoutBordersAndWithoutFocusPainted() {
     Button button = new Button(ANY_TEXT);
-    assertEquals(ANY_TEXT , button.getText());
-    assertFalse(button.isBorderPainted());
-    assertFalse(button.isFocusPainted());
+    assertEquals(ANY_TEXT , button.getJButton().getText());
+    assertFalse(button.getJButton().isBorderPainted());
+    assertFalse(button.getJButton().isFocusPainted());
   }
 
 }

@@ -27,8 +27,8 @@ public class NoCardPanel extends JPanel {
     dataPanel.setBorder(new ShadowBorder().getBorder());
     JPanel extra = new JPanel();
     newCardButton = new Button("New card");
-    newCardButton.addActionListener((ActionEvent e) -> mainView.showNewCardView());
-    extra.add(newCardButton);
+    newCardButton.getJButton().addActionListener((ActionEvent e) -> mainView.showNewCardView());
+    extra.add(newCardButton.getJButton());
     dataPanel.add(extra, BorderLayout.SOUTH);
     add(dataPanel, BorderLayout.CENTER);
   }
@@ -38,7 +38,7 @@ public class NoCardPanel extends JPanel {
   }
 
   String getNewCardButtonText() {
-    return newCardButton.getText();
+    return newCardButton.getJButton().getText();
   }
 
 }

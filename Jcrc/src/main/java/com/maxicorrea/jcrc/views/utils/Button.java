@@ -2,13 +2,17 @@ package com.maxicorrea.jcrc.views.utils;
 
 import javax.swing.JButton;
 
-public class Button extends JButton {
-  private static final long serialVersionUID = 1L;
+public class Button {
+
+  private JButton button;
 
   public Button(String text) {
-    super(text);
-    setBorderPainted(false);
-    setFocusPainted(false);
+    button = new JButton(text);
+    button.setBorderPainted(false);
+    button.setFocusPainted(false);
   }
-  
+
+  public JButton getJButton() {
+    return button;
+  }
 }
