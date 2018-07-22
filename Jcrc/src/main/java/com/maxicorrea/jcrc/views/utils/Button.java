@@ -6,15 +6,15 @@ import javax.swing.JButton;
 public class Button implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  private JButton button;
+  private JButton jButton;
 
   public Button(String text) {
-    button = new JButton(text);
-    button.setBorderPainted(false);
-    button.setFocusPainted(false);
+    jButton = new JButton(text);
+    jButton.setBorderPainted(false);
+    jButton.setFocusPainted(false);
   }
 
   public JButton getJButton() {
-    return button;
+    return jButton;
   }
 }
