@@ -3,6 +3,9 @@
 ### Descripción
 Este proyecto pretende ser una utilidad para la construcción y organización de tarjetas CRC.
 
+### Youtube
+https://www.youtube.com/watch?v=J6sBftt9g-Y
+
 ### Caracteristicas
 1 - Crear/Modificar/Eliminar tarjetas CRC de forma interactiva.
 
